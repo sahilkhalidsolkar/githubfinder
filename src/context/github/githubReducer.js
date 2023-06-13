@@ -3,41 +3,48 @@ import {
     SET_LOADING,
     CLEAR_USER,
     GET_USER,
-    GET_REPOS
-   } from '../types';
+    GET_REPOS,
+    UNSET_LOADING
+} from '../types';
 
-   export default (state,action)=>{
-    switch(action.type){
+export default (state, action) => {
+    console.log(state)
+    switch (action.type) {
         case SEARCH_USER:
-            return{
+            return {
                 ...state,
-                users:action.payload,
-                loading:false
+                users: action.payload,
+                loading: false
             }
         case GET_USER:
-            return{
+            return {
                 ...state,
-                singelUser:action.payload,
-                loading:false
+                singelUser: action.payload,
+                loading: false
             }
         case GET_REPOS:
-            return{
+            return {
                 ...state,
-                singelUserRepos:action.payload
+                singelUserRepos: action.payload
             }
         case CLEAR_USER:
-            return{
+            return {
                 ...state,
-                users:[]
+                users: []
             }
         case SET_LOADING:
-            return{
+            return {
                 ...state,
-                loading:true
+                loading: true
             }
-        
+        case UNSET_LOADING:
+            return {
+                ...state,
+                loading: false
+            }
+
 
         default:
             return state;
     }
-   }
+}
